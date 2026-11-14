@@ -1,4 +1,4 @@
 {
-  "verilog.linting.linter": "verilator",
+  "verilog.linting.linter": "none", // "verilator" to use the Verible extension
   "verilog.formatting.verilogHDL.formatter": "verible-verilog-format"
 }
