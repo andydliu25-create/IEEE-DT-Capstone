@@ -1,3 +1,5 @@
+import cpuPkg::*;
+
 module instructFile(
     input logic clk, wEnable, reset,
     input instruction wInstruction,

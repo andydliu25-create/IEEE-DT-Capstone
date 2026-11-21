@@ -4,6 +4,7 @@ package cpuPkg;
    typedef enum logic [2:0] {ADDS, SUBS, ANDS, ORS, XORS} aluOp;
    typedef logic [7:0] instruction;
    typedef logic [1:0] regIdxAddr;
+   typedef logic [7:0] regType;
 endpackage
 
 
