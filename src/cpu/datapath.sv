@@ -6,6 +6,9 @@ module datapath (
     input logic res,
     input logic clock,
     input logic write_enable
+    input  regIdxAddr regIndex1,
+    input  regIdxAddr regIndex2,
+    input  regIdxAddr writeIndex,
 );
 
     logic [7:0] ALUdata1, ALUdata2;
@@ -18,6 +21,9 @@ module datapath (
         .writeData(ALUout)
         .wEnable(write_enable),
         .clk(clock)
+        .regIdx1(regIndex1),
+        .regIdx2(regIndex2),
+        .writeIdx(writeIndex)
     );
 
     assign ALUdata2 = RegImm ? register_data2 : Imm;
