@@ -11,7 +11,7 @@ module datapath (
 
     regFile register_file (
         .outData1(ALUdata1),
-        .outData2(register_data2)
+        .outData2(register_data2),
         .writeData(ALUout)
     );
 
