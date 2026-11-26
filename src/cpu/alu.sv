@@ -1,3 +1,5 @@
+import cpuPkg::*;
+
 module alu (
 
     input logic [7:0] src1, src2,
