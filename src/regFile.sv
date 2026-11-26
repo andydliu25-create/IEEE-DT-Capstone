@@ -2,7 +2,7 @@ import cpuPkg::*;
 
 module regFile(
     input  logic clk, wEnable, reset,
-    input  logic [7:0] regData,
+    input  logic [7:0] writeData,
     input  regIdxAddr regIdx1,
     input  regIdxAddr regIdx2,
     input  regIdxAddr writeIdx,
@@ -18,7 +18,7 @@ module regFile(
         if (!reset)
             register <= '{default: 0};
         else if (wEnable)
-            register[writeIdx] <= regData;
+            register[writeIdx] <= writeData;
     end
 
 endmodule
