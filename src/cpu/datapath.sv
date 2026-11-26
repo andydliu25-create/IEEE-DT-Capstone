@@ -1,12 +1,18 @@
 import cpuPkg::*;
 
-module datapath()
+module datapath (
+    input logic RegImm,
+    input logic [7:0] Imm
+);
 
-  logic [7:0] ALUdata1, ALUdata2;
+    logic [7:0] ALUdata1, ALUdata2;
+    logic [7:0] register_data2;
 
-  regfile register (
-    .ALUdata1(outData1),
-    .ALUdata2(outData2)
-  );
-  
+    regFile register_file (
+        .outData1(ALUdata1),
+        .outData2(register_data2)
+    );
+
+    assign ALUdata2 = RegImm ? register_data2 : Imm;
+
 endmodule
