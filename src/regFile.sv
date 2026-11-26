@@ -1,17 +1,24 @@
 import cpuPkg::*;
 
 module regFile(
-    input logic clk, wEnable, reset,
-    input logic [7:0] regData,
-    input regIdxAddr regIdx,
-    output logic [7:0] outData 
+    input  logic clk, wEnable, reset,
+    input  logic [7:0] regData,
+    input  regIdxAddr regIdx1,
+    input  regIdxAddr regIdx2,
+    input  regIdxAddr writeIdx,
+    output logic [7:0] outData1,
+    output logic [7:0] outData2
 );
     logic [7:0] register [0:3];
 
-    always_ff @(posedge clk or negedge rst) begin
-        if(!reset) register <= '{default: 0};
-        else if(wEnable) register[regIdx] <= regData;
-        else outData <= register[regIdx];
+    assign outData1 = register[regIdx1];
+    assign outData2 = register[regIdx2];
+
+    always_ff @(posedge clk or negedge reset) begin
+        if (!reset)
+            register <= '{default: 0};
+        else if (wEnable)
+            register[writeIdx] <= regData;
     end
 
 endmodule
