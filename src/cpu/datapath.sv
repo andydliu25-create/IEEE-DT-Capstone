@@ -2,7 +2,10 @@ import cpuPkg::*;
 
 module datapath (
     input logic RegImm,
-    input logic [7:0] Imm
+    input logic [7:0] Imm,
+    input logic res,
+    input logic clock,
+    input logic write_enable
 );
 
     logic [7:0] ALUdata1, ALUdata2;
@@ -13,6 +16,8 @@ module datapath (
         .outData1(ALUdata1),
         .outData2(register_data2),
         .writeData(ALUout)
+        .wEnable(write_enable),
+        .clk(clock)
     );
 
     assign ALUdata2 = RegImm ? register_data2 : Imm;
