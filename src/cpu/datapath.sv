@@ -2,6 +2,8 @@ import cpuPkg::*;
 
 module datapath (
     input logic RegImm,
+    input logic [2:0] ALUsel,
+    input logic [1:0] ShiftMode,
     input logic [7:0] Imm,
     input logic res,
     input logic clock,
@@ -32,7 +34,9 @@ module datapath (
     alu alunit (
         .src1(ALUdata1),
         .src2(ALUdata2),
-        .result(ALUout)
+        .result(ALUout),
+        .sel(ALUsel),
+        .mode(ShiftMode)
     );
 
 endmodule
