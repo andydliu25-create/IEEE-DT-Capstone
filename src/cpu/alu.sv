@@ -9,12 +9,12 @@ module alu (
 always_comb begin
 
     case (sel)
-        3'b001: result = src1 + src2;
-        3'b010: result = src1 - src2;
-        3'b011: result = src1 & src2;
-        3'b100: result = src1 | src2;
-        3'b101: result = src1 ^ src2;
-        3'b110: begin
+        3'ADDS: result = src1 + src2;
+        3'SUBS: result = src1 - src2;
+        3'ANDS: result = src1 & src2;
+        3'ORS: result = src1 | src2;
+        3'XORS: result = src1 ^ src2;
+        3'SHIFTS: begin
             case (mode)
                 2'b00: result = src1 << 1;
                 2'b01: result = src1 >> 1;
